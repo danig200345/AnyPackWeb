@@ -35,6 +35,10 @@ jobs:
         #build app for production
       - name: Build app bundle
         run: npm run build:prod
+        #change name
+      - name: Change name index
+        run: mv dist/anypackweb/browser/index.html dist/anypackweb/browser/404.html
+
         #deploy to git
       - name: Deploy to pages
         uses: crazy-max/ghaction-github-pages@c05ee637ec73429400a359430db8e5629f3f2564
