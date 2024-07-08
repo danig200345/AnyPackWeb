@@ -27,7 +27,7 @@ jobs:
         run: npm run build:prod
 
       - name: Copy index.html to 404.html
-        run: cp dist/anypackweb/index.html dist/anypackweb/404.html
+        run: cp dist/anypackweb/browser/index.html dist/anypackweb//browser/404.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
