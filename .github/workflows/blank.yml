@@ -43,6 +43,6 @@ jobs:
       - name: Deploy to pages
         uses: crazy-max/ghaction-github-pages@c05ee637ec73429400a359430db8e5629f3f2564
         with:
-          build_dir: dist/anypackweb/browser/home
+          build_dir: dist/anypackweb/browser/
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
