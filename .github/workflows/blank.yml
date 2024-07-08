@@ -29,11 +29,15 @@ jobs:
       - name: Change name index for home
         run: mv dist/anypackweb/browser/home/index.html dist/anypackweb/browser/home/404.html
 
+      - name: Copy 404.html to dist directory
+        run: cp 404.html dist/anypackweb/browser/404.html
+
       - name: Combine build directories
         run: |
           mkdir -p dist/combined
           cp -r dist/anypackweb/browser/home/* dist/combined/
           cp -r dist/anypackweb/browser/contacto/* dist/combined/
+          cp dist/anypackweb/browser/404.html dist/combined/404.html
 
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@c05ee637ec73429400a359430db8e5629f3f2564
