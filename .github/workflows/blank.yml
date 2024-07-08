@@ -26,14 +26,11 @@ jobs:
       - name: Build app bundle
         run: npm run build:prod
 
-      - name: Rename index.html to 404.html
-        run: |
-          mv dist/anypackweb/index.html dist/anypackweb/404.html
-          mv dist/anypackweb/404.html dist/anypackweb/index.html
+      - name: Copy index.html to 404.html
+        run: cp dist/anypackweb/index.html dist/anypackweb/404.html
 
       - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@c05ee637ec73429400a359430db8e5629f3f2564
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          build_dir: dist/anypackweb
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/anypackweb
