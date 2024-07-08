@@ -26,11 +26,17 @@ jobs:
       - name: Build app bundle
         run: npm run build:prod
 
-      - name: Copy index.html to 404.html
-        run: cp dist/anypackweb/browser/index.html dist/anypackweb//browser/404.html
+      - name: Copy index.html to 404.html in home
+        run: cp dist/anypackweb/browser/home/index.html dist/anypackweb/browser/home/404.html
+
+      - name: Copy index.html to 404.html in contacto
+        run: cp dist/anypackweb/browser/contacto/index.html dist/anypackweb/browser/contacto/404.html
+
+      - name: Copy root index.html to 404.html
+        run: cp dist/anypackweb/browser/index.csr.html dist/anypackweb/browser/404.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/anypackweb
+          publish_dir: ./dist/anypackweb/browser
