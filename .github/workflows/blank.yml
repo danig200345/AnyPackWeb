@@ -26,8 +26,8 @@ jobs:
       - name: Build app bundle
         run: npm run build:prod
 
-      - name: Change name index for home
-        run: mv dist/anypackweb/browser/index.html dist/anypackweb/browser/404.html
+      # - name: Change name index for home
+      #   run: mv dist/anypackweb/browser/index.html dist/anypackweb/browser/404.html
 
       #deploy to git
       - name: Deploy to pages
