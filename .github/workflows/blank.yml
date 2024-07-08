@@ -26,13 +26,13 @@ jobs:
       - name: Build app bundle
         run: npm run build:prod
 
-      # - name: Change name index for home
-      #   run: mv dist/anypackweb/browser/index.html dist/anypackweb/browser/404.html
+      - name: Change name index for home
+        run: mv dist/anypackweb/browser/home/index.html dist/anypackweb/browser/home/404.html
 
       #deploy to git
       - name: Deploy to pages
         uses: crazy-max/ghaction-github-pages@c05ee637ec73429400a359430db8e5629f3f2564
         with:
-          build_dir: dist/anypackweb/browser
+          build_dir: dist/anypackweb/browser/home
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
