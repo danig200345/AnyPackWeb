@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
@@ -12,14 +12,5 @@ import { FooterComponent } from './shared/footer/footer.component';
 })
 export class AppComponent {
   title = 'anypackweb';
-  constructor(private router: Router) { }
-
-  goToHome() {
-    this.router.navigate(['/home']);
-  }
-
-  goToContacto() {
-    this.router.navigate(['/contacto']);
-  }
 
 }
