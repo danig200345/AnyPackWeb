@@ -1,48 +1,43 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Web-CI
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: ["main"]
   pull_request:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
         uses: actions/checkout@v4
-        #setup
-      - name: Setup nodejs
-        uses: actions/setup-node@v4.0.2
 
-        #node
-      - name: Install deps
-        run: npm i
-        #build app for production
+      - name: Setup Node.js
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: "16"
+
+      - name: Install dependencies
+        run: npm install
+
       - name: Build app bundle
         run: npm run build:prod
-        #change name
-      - name: Change name index
+
+      - name: Change name index for home
         run: mv dist/anypackweb/browser/home/index.html dist/anypackweb/browser/home/404.html
 
-        #deploy to git
-      - name: Deploy to pages
+      - name: Combine build directories
+        run: |
+          mkdir -p dist/combined
+          cp -r dist/anypackweb/browser/home/* dist/combined/
+          cp -r dist/anypackweb/browser/contacto/* dist/combined/
+
+      - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@c05ee637ec73429400a359430db8e5629f3f2564
         with:
-          build_dir: dist/anypackweb/browser/contacto
+          build_dir: dist/combined
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
