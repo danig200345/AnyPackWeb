@@ -14,7 +14,7 @@ import { debounceTime } from 'rxjs/operators';
   templateUrl: './contacto.component.html',
   styleUrls: ['./contacto.component.css']
 })
-export default class ContactoComponent implements OnInit {
+export class ContactoComponent implements OnInit {
   contactForm: FormGroup;
   loading = false;
   sentMessage = false;

@@ -9,6 +9,6 @@ import { RouterModule } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export default class HomeComponent {
+export class HomeComponent {
 
 }
