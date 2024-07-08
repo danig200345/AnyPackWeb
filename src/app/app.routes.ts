@@ -1,11 +1,20 @@
-import { provideRouter, RouterModule, Routes } from '@angular/router';
-import HomeComponent from './pages/home/home.component';
-import ContactoComponent from './pages/contacto/contacto.component';
+import { Routes } from '@angular/router';
 
-const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'contacto', component: ContactoComponent },
+
+export const routes: Routes = [
+  {
+    path: 'home',
+    loadComponent: () => import('./pages/home/home.component')
+  },
+  {
+    path: 'contacto',
+    loadComponent: () => import('./pages/contacto/contacto.component')
+  },
+
+  {
+    path: '', redirectTo: 'home', pathMatch: 'full'
+  },
+  {
+    path: '**', redirectTo: 'inicio', pathMatch: 'full'
+  }
 ];
-
-export const appRoutes = provideRouter(routes);
