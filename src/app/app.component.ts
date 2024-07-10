@@ -1,29 +1,34 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { isPlatformBrowser } from '@angular/common';
 import * as AOS from 'aos';
+
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'anypackweb';
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      AOS.init({
-        duration: 1000,
-        once: true,
-      });
-      window.addEventListener('load', AOS.refresh);
+      // Initialize AOS with a delay
+      setTimeout(() => {
+        AOS.init({
+          duration: 1000,
+          once: true,
+        });
+        window.addEventListener('load', () => {
+          AOS.refresh();
+        });
+      }, 500); // Adjust the delay as needed
     }
   }
-
 }
