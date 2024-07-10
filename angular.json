@@ -27,9 +27,18 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "public/lib/owlcarousel/assets/owl.carousel.min.css",
+              "public/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css",
+              "public/css/style.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "public/lib/easing/easing.min.js",
+              "public/lib/owlcarousel/owl.carousel.min.js",
+              "public/lib/tempusdominus/js/moment.min.js",
+              "public/lib/tempusdominus/js/moment-timezone.min.js",
+              "public/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {

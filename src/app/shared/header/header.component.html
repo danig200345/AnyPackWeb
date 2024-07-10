@@ -1,60 +1,57 @@
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-
-  header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-  }
-
-  .container {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .logo {
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-
-  nav ul li {
-    margin-left: 20px;
-  }
-
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-  }
-
-  nav ul li a:hover {
-    text-decoration: underline;
-  }
-</style>
-
-<header>
+<!-- Topbar Start -->
+<div class="container-fluid bg-light pt-3 d-none d-lg-block">
   <div class="container">
-    <div class="logo">
-      Guajiro Anypack Any Sizes
+    <div class="row">
+      <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+        <div class="d-inline-flex align-items-center">
+          <p><i class="fa fa-envelope mr-2"></i>{{email}}</p>
+          <p class="text-body px-3">|</p>
+          <p><i class="fa fa-phone-alt mr-2"></i>+52 33 1587 2039</p>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center text-lg-right">
+        <div class="d-inline-flex align-items-center">
+          <a class="text-primary px-3" href="">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a class="text-primary px-3" href="">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a class="text-primary px-3" href="">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a class="text-primary px-3" href="">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a class="text-primary pl-3" href="">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
     </div>
-    <nav>
-      <ul>
-        <li><a routerLink="/home">Inicio</a></li>
-        <li><a routerLink="/contacto">Contacto</a></li>
-      </ul>
+  </div>
+</div>
+<!-- Topbar End -->
+
+<!-- Navbar Start -->
+<div class="container-fluid position-relative nav-bar p-0">
+  <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+    <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
+      <a href="" class="navbar-brand">
+        <h1 class="m-0 text-primary"><span class="text-dark">Any Pack</span> Any Sizes</h1>
+      </a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+        <div class="navbar-nav ml-auto py-0">
+          <a routerLinkActive="active" routerLink="/home" class="nav-item nav-link">Inicio</a>
+          <a class="nav-item nav-link" (click)="scrollToSection('about')" style="cursor: pointer;">Acerca de</a>
+          <a class="nav-item nav-link" (click)="scrollToSection('service')" style="cursor: pointer;">Servicios</a>
+          <a routerLinkActive="active" routerLink="/contacto" class="nav-item nav-link">Contacto</a>
+        </div>
+      </div>
     </nav>
   </div>
-</header>
+</div>
+<!-- Navbar End -->

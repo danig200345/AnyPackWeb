@@ -10,5 +10,6 @@ import { RouterModule } from '@angular/router';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
+  email = 'redes.sociales@anypack.mx';
 
 }
