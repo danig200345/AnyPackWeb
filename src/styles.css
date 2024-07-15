@@ -19,11 +19,6 @@ html {
 .fixed-corner a {
   display: block;
   text-align: center;
-  color: #25d366;
-  background-color: white;
-  border-radius: 50%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  padding: 10px;
 }
 
 .fixed-corner a i {
