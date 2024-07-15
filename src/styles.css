@@ -23,7 +23,7 @@ html {
 
 .fixed-corner a i {
   display: block;
-  font-size: 100px;
+  font-size: 4rem;
 }
 
 @media (max-width: 600px) {
@@ -33,6 +33,6 @@ html {
   }
 
   .fixed-corner a i {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 }
