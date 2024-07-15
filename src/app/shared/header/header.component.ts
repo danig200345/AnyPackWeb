@@ -32,12 +32,23 @@ export class HeaderComponent {
   }
 
   // Método para desplazarse a la sección después de la navegación
-  scrollToSectionAfterNavigation(sectionId: string): void {
-    // Obtenemos el elemento con el ID proporcionado
-    const element = document.getElementById(sectionId);
-    // Si el elemento existe, desplazamos a él suavemente
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  private scrollToSectionAfterNavigation(sectionId: string): void {
+    // Usamos setTimeout para asegurarnos de que la vista se ha cargado completamente antes de desplazarnos
+    setTimeout(() => {
+      // Obtenemos el elemento con el ID proporcionado
+      const element = document.getElementById(sectionId);
+      // Si el elemento existe, desplazamos a él suavemente
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100); // Ajusta el tiempo si es necesario
+  }
+  scrollTop() {
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }, 50);
   }
 }

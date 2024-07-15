@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      // Initialize AOS with a delay
       setTimeout(() => {
         AOS.init({
           duration: 1000,
@@ -28,7 +27,7 @@ export class AppComponent implements OnInit {
         window.addEventListener('load', () => {
           AOS.refresh();
         });
-      }, 500); // Adjust the delay as needed
+      }, 500);
     }
   }
 }

@@ -82,4 +82,5 @@ export class ContactoComponent implements OnInit { // La clase implementa OnInit
       });
     }, 50);
   }
+
 }
