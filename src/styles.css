@@ -2,3 +2,8 @@
 .mt-150 {
   margin-top: 150px;
 }
+.r-corner {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
